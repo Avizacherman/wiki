@@ -1,0 +1,29 @@
+
+<div class="row">
+	<div class="large-4 small-4 columns">
+		Username: 
+	</div>
+	<div class="large-8 small-8 columns">
+		<%=data.user_name%>
+	</div>
+</div>
+<div class="row">
+	<div class="large-4 small-4 columns">
+		E-mail: 
+	</div>
+	<div class="large-8 small-8 columns">
+		<%=data.email%>
+	</div>
+</div>
+<div class="row">
+	<div class="large-4 small-4 columns">
+		Timezone: 
+	</div>
+	<div class="large-8 small-8 columns">
+		<span id="timezone"></span>
+	</div>
+</div>
+
+<script>
+$('#timezone').text(offset)
+</script>

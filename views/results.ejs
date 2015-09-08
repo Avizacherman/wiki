@@ -1,0 +1,23 @@
+
+<div class="row">
+	<div class="large-8 small-8 large-offset-1 small-offset-1 columns">
+<%if(!data[0]){%>
+	<h4> No results matching "<%=searchString%>" </h4>
+<%} else {%>
+<%data.forEach(function(data, index){%>
+
+	<div class="row">
+		<div class="full columns">
+			<a href="/wiki/<%=data.title%>"> <h3> <%=data.title%> </h3> </a>
+			<h6> Last edited by: <%=data.user_name%> on <span id="timeHolder<%=index%>"><span> </h6>
+				<%if(data.timestamp){%>
+				<script>
+					var offsetTimestamp = moment.tz("<%=data.timestamp%>", offset).format("dddd, MMMM Do YYYY, h:mm a")
+					$(timeHolder<%=index%>).text(offsetTimestamp)
+				</script>
+			<%}%>
+		</div>
+	</div>
+	<%})%>
+<%}%>
+

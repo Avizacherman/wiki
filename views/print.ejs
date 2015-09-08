@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%=data.title%></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js"></script>
+<script src="http://momentjs.com/downloads/moment-timezone-with-data-2010-2020.min.js"></script>
+<script> 
+
+moment().format() 
+var offset = jstz.determine().name()
+
+</script>
+</head>
+<body>
+	
+		<h2 class="page-title"> <%=data.title%> </h2>
+
+	<%-data.content%>
+	
+<br/>
+			<h4>Tags</h4>
+	<% for(i=0; i<data.tags.length; i++) {%>
+
+		 <%=data.tags[i]%> 
+	<%}%>		
+		<h6>Last updated by <%=data.user_name%> at <span id="timeHolder"> </span> </h6>
+
+
+	<%if(data.timestamp){%>
+		<script>
+		var offsetTimestamp = moment.tz("<%=data.timestamp%>", offset).format("dddd, MMMM Do YYYY, h:mm a")
+			time = document.getElementById('timeHolder')
+			time.textContent = offsetTimestamp
+		</script>
+<%}%>
+
+<h5><a href="/wiki/<%=data.title%>"> Return to wiki</a> </h5>
+</body>
+</html>

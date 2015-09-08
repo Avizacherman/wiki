@@ -1,0 +1,66 @@
+<div class="row">
+	<div class="large-11 small-11 columns">
+		<h2 class="page-title"> <%=dataset[0].title%> Revision History </h2>
+	</div>
+</div>
+<%dataset.forEach(function(data, index){%>
+<div class="row">
+	<div class="large-3 small-3 columns">
+		<h3 class="page-title"> Revision # <%=dataset.length-index%> </h3>
+	</div>
+</div>
+<div class="row">
+	<div class="large-10 small-10 columns large-offset-1 small-offset-1">
+		<%-data.content%>
+	</div>
+</div>
+<br/>
+	<div class="row">
+		<div class="large-3 small-3 columns large-offset-1 small-offset-1">
+			<h4>Tags</h4>
+		</div>
+	</div>
+	<div class="row">
+	<div class="large-10 small-10 columns large-offset-1 small-offset-1">		
+	<% for(i=0; i<data.tags.length; i++) {%>
+
+		<%if(i%6 != 0){%>
+		<a href="/search?tag=<%=data.tags[i]%>"> <button class="left tag tiny"> <%=data.tags[i]%> </button></a>
+		<%} else {%>
+			</div>
+			</div>
+			<div class="row">
+				<div class="large-10 small-10 columns large-offset-1 small-offset-1">		
+				<a href="/search?tag=<%=data.tags[i]%>"> <button class="left tag tiny"> <%=data.tags[i]%> </button></a>
+		<%}%>
+		<%}%>
+	</div>
+</div>
+<div class="row">
+	<div class="large-5 small-5 columns large-offset-6 small-offset-6">
+		<h6>Last updated by <%=data.user_name%> at <span id="timeHolder<%=index%>"> </span> </h6>
+	</div>
+</div>
+
+
+	<%if(data.timestamp){%>
+		<script>
+		var offsetTimestamp = moment.tz("<%=data.timestamp%>", offset).format("dddd, MMMM Do YYYY, h:mm a")
+			$('#timeHolder<%=index%>').text(offsetTimestamp)
+
+		</script>
+<%}%>
+<%})%>
+
+<div class="row">
+	<div class="large-2 small-2 columns large-offset-1 small-offset-1">
+<a href ="/wiki/<%=dataset[0].title%>/edit"><button class="tiny">Edit</button></a>
+</div>
+</div>
+
+
+<div class="row">
+	<div class="large-4 small-4 columns large-offset-1 small-offset-1">
+<a href ="/wiki/<%=dataset[0].title%>">Return to Original Page</a>
+</div>
+</div>

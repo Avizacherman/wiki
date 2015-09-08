@@ -1,0 +1,136 @@
+h6{
+	font-size: 70%;
+	font-style: italic;
+}
+.dividor {
+	height: 400px;
+	width: 0;
+	border-right: 0;
+	border-left: 1;
+	border-style: solid;
+	border-color: black;
+	margin: 3% auto;
+}
+
+.heading-1{
+	font-style: bold;
+	font-weight: bolder;
+}
+
+.heading-2{
+	font-size: 145%;
+}
+
+.heading-3{
+	font-size: 110%;
+	font-style: italic;
+}
+
+
+hr {
+	height: 2px;
+	color: rgba(50,50,50, .8);
+	background-color: rgba(50,50,50, .8);
+}
+
+.tag {
+	background-color: rgba(71, 163, 255, .7);
+	font-style italic;	
+	border-radius: 10%
+}
+
+textarea {
+	white-space: pre-wrap;
+	resize: none;
+
+}
+
+.icon {
+	background: url('/img/steaming-bowl2.png');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+
+}
+
+.bold {
+	font-style: normal;
+	font-weight: bold;
+}
+
+ .italic {
+	font-style: italic;
+}
+
+.container {
+	width:85%;
+	margin: 3% auto;
+	background: rgba(194,194,194,.3);
+	padding: 2% 0;
+}
+
+.noDots {
+list-style: none;
+}
+
+.background{
+	background: url('http://thumbs.dreamstime.com/z/ramen-noodle-soup-24697163.jpg');
+	background-position: fill;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	opacity: .15;
+}
+
+.redirect-page{
+	margin-top: 4%;
+}
+
+.longFlow {
+	height: 300px;
+	overflow: auto;
+}
+.top-bar .name h1 a, .top-bar .name h2 a, .top-bar .name h3 a, .top-bar .name h4 a, .top-bar .name p a, .top-bar .name span a {
+	color: gold;
+	font-style: bold;
+	}
+
+.top-bar-section .dropdown {
+	opacity: .5;
+}
+
+.userLog {
+	padding-top: 10%;
+	width: 150%;
+	font-weight: bold;
+	color: white;
+	
+}
+
+.padded {
+	padding: 0 1%;
+}
+
+#content {
+	height: 400px;
+}
+
+#contentIndex {
+	resize: none;
+	height: 300px;
+}
+
+#logout {
+}
+
+button.tiny, .button.tiny {
+	margin-left: .5%;
+	margin-right: .5%;
+}
+
+#passwordMatchErr{
+	color: red;
+	font-style: italic;
+	font-size: 1em;
+}

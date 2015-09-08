@@ -1,0 +1,17 @@
+<div class="redirect-page">
+<div class="text-center">
+This username already exists.  Redirecting in 3 seconds... <i class="fa fa-refresh fa-spin fa-3x"></i>
+</div>
+</div>
+<script id="cookiemonster">
+$(document).ready(function(){
+
+var redirect = window.setTimeout(function(){
+	console.log('yo')
+	window.location.href="/"
+}, 3000)
+
+})
+
+$('#cookiemonster').remove()
+</script>

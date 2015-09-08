@@ -1,0 +1,38 @@
+
+<form action="<%=returnPath+'/edit'%>" method="POST">
+<div class="row">
+		
+		<div class="large-10 small-10 columns large-offset-1 small-offset-1">
+		Title
+	</div>
+<div class="row">
+	<div class="large-offset-1 small-offset1 large-3 small-3 columns">
+		<input name="title" value="<%=data.title%>">
+	</div>
+</div>
+<div class="row">
+
+	<div class="large-10 small-10 columns large-offset-1 small-offset-1">
+		<textarea id="content" name="content" autofocus> </textarea>
+	</div>
+	</div>
+	<div class="row">
+		
+		<div class="large-10 small-10 columns large-offset-1 small-offset-1">
+		Tags
+		<input type="text" name="tags" id="tags">
+	</div>
+</div>
+<div class="row">
+	<div class="full columns">
+		<button class="tiny right" type="submit">Submit</button> 
+	</div>
+</div>
+
+	</form>
+
+<script id="populator">
+	$('#content').val("<%-data.content.replace(/\n/g, String.fromCharCode(13, 10))%>")
+	$('#tags').val("<%=data.tags%>")
+	$('#populator').remove()
+</script>

@@ -1,0 +1,100 @@
+
+<div class="row">
+	<div class="full columns">
+		<h2 class="page-title"> <%=data.title%> </h2>
+	</div>
+</div>
+<div class="row">
+	<div class="large-10 small-10 columns large-offset-1 small-offset-1">
+		<%-data.content%>
+	</div>
+</div>
+<br/>
+	<div class="row">
+		<div class="large-3 small-3 columns large-offset-1 small-offset-1">
+	<%if(data.tags[0] !== ''){%>
+			<h4>Tags</h4>
+		</div>
+	</div>
+	<div class="row">
+	<div class="large-10 small-10 columns large-offset-1 small-offset-1">		
+	
+	<% for(i=0; i<data.tags.length; i++) {%>
+
+		<%if(i%6 != 0){%> 
+		<a href="/search?tag=<%=data.tags[i]%>"> <button class="left tag tiny"> <%=data.tags[i]%> </button></a>
+		<%} else {%>
+			</div>
+			</div>
+			<div class="row">
+				<div class="large-10 small-10 columns large-offset-1 small-offset-1">		
+				<a href="/search?tag=<%=data.tags[i]%>"> <button class="left tag tiny"> <%=data.tags[i]%> </button></a>
+		<%}%>
+		<%}%>
+		<%}%>
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-5 small-5 columns large-offset-6 small-offset-6">
+		<h6>Last updated by <%=data.user_name%> at <span id="timeHolder"> </span> </h6>
+	</div>
+</div>
+<div class="row">
+	<div class="large-6 small-6 columns large-offset-1 small-offset-1">
+<a href ="/wiki/<%=data.title%>/edit"><button class="tiny">Edit</button></a><a href="/wiki/<%=data.title%>/print"><button class="tiny">Print Version </button> </a>
+</div>
+<div class="large-4 small-4 columns">
+<a href ="/wiki/<%=data.title%>/revisions"><button class="tiny">View Revision History</button></a>
+</div>
+</div>
+<%if (typeof(comments)!='undefined'){%>
+<div class="row">
+	<div class="large-offset-1 small-offset-1 large-10 small-10 columns">
+		<h3 class="commentTitle"> Comments </h3>
+	</div>
+</div>
+<%comments.forEach(function(comment, index) { %>
+	<div class="row">
+		<div class="large-9 small-9 large-offset-2 small-offset-2">
+			<p class="commentary"><%=comment.comment%></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-5 small-5 large-offset-6 small-offset-6 columns">
+			<h6> -<%=comment.user_name%> at <span id='<%="commentTime"+index%>'> </span> </h6>
+		</div>
+	</div>
+	<%if(index!=comments.length-1){%>
+	<div class="row">
+		<div class="large-6 small-6 large-offset-3 small-offset-3 columns">
+	<hr>
+</div>
+</div>
+<%}%>
+	<%})%>	
+<%}%>
+<div class="row">
+	<div class="large-10 small-10 large-offset-1 small-offset-1 columns">
+		<h3>Add new comment</h3>
+		<form action="<%=returnPath+'/comment'%>" id="commentbox" method="POST">
+		<textarea rows="5" name="comment" id="comment"></textarea>
+		<button class="tiny"> Add Comment </button>
+		</form>
+	</div>
+</div>
+
+	<%if(data.timestamp){%>
+		<script>
+		var offsetTimestamp = moment.tz("<%=data.timestamp%>", offset).format("dddd, MMMM Do YYYY, h:mm a")
+			$('#timeHolder').text(offsetTimestamp)
+		<%if (typeof(comments)!='undefined'){%>
+			<%comments.forEach(function(comment, index){%>
+			var offsetNo<%=index%> = moment.tz("<%=comment.timestamp%>", offset).format("dddd, MMMM Do YYYY, h:mm a")
+			$('<%="#commentTime"+index%>').text(offsetNo<%=index%>)
+		<%})%>
+			<%}%>
+		</script>
+<%}%>
+
+

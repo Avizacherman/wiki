@@ -1,0 +1,89 @@
+<div class="row">
+	<div class="large-6 small-6 columns">
+		<h2 class="page-title"> Welcome to the Ramen Wiki </h2>
+	</div>
+</div>
+<div class="row">
+	<div class="large-5 small-5 columns large-offset-1">
+Enter a page to create today!
+	</div>
+	<div class="large-5 small-5 columns large-offset-1">
+	<%if(!newBuild){%>
+
+	Most Recently Updated Page
+	<%} else {%>
+	No Content Yet Created
+<%}%>
+	</div>
+</div>
+
+<div class="row">
+	<div class="columns large-5 small-5">	
+		<div class="row">
+	<div class="large-3 small-3 columns">
+</div>
+</div>
+<form action="" id="submitterIndex" method="POST">
+<div class="row">
+	<div class="large-10 small-10 columns large-offset-1 small-offset-1">
+		Title <input type="text" id="titleIndex" name="title">
+</div>
+</div>
+<div class="row">
+
+	<div class="large-10 small-10 columns large-offset-1 small-offset-1">
+		<textarea id="contentIndex" name="content" placeholder="Enter content for a new page"> </textarea>
+	</div>
+	</div>
+	<div class="row">
+		
+		<div class="large-10 small-10 columns large-offset-1 small-offset-1">
+		Tags
+		<input type="text" name="tags" id="tags">
+	</div>
+</div>
+<div class="row">
+	<div class="full columns">
+		<button class="tiny right" id="submitIndex" type="submit">Submit</button> 
+	</div>
+</div>
+
+	</form>
+</div>
+	<%if(!newBuild){%>
+
+	<div class="columns large-1 small-1">
+		<div class="dividor">
+		</div>
+	</div>
+	<div class="columns large-5 small-5" style="margin: 10px;">
+		<div class="row">
+	<div class="full columns">
+	<a href="/wiki/<%=data.title%>">	<h2 class="page-title"> <%=data.title%> </h2></a>
+	</div>
+</div>
+<div class="row">
+	<div class="large-10 small-10 columns large-offset-1 small-offset-1 ">
+		<div class="longFlow">
+		<%-data.content%>
+	</div>
+	</div>
+</div>
+<br/>
+	<div class="row">
+	<div class="large-5 small-5 columns large-offset-6 small-offset-6">
+		<h6>Last updated by <%=data.user_name%> at <span id="timeHolder"> </span> </h6>
+	</div>
+</div>
+
+
+	<%if(data.timestamp){%>
+		<script>
+		var offsetTimestamp = moment.tz("<%=data.timestamp%>", offset).format("dddd, MMMM Do YYYY, h:mm a")
+			$('#timeHolder').text(offsetTimestamp)
+
+		</script>
+<%}%>
+<%}%>
+	</div>
+</div>
