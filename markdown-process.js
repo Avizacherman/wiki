@@ -18,7 +18,7 @@ exports.MarkdownSet = function(content, options) {
 	var externalLink = new RegExp(/\([\w+\!\.\?\s]+\|\|(http|https)\:\/\/[\.\w+\/]+\)/g)
 
 	//image
-	var imageTag = new RegExp(/<<(http|https)\:\/\/[\.\w+\/\_]+(\.jpg|\.png|\.gif|\.jpeg)>>/gi)
+	var imageTag = new RegExp(/<<(http|https)\:\/\/[\.\w+\/\_\-]+(\.jpg|\.png|\.gif|\.jpeg)>>/gi)
 
 	//newlines
 	var newLine = new RegExp(/\r\n/g)
